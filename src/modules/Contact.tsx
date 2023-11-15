@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
+
+import footerLogo from '@assets/icons/footerLogo2.png';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 
 // import wave1 from '@assets/images/wave1.svg';
 // import wave2 from '@assets/images/wave2.svg';
 // import wave3 from '@assets/images/wave3.svg';
-import footerLogo from '@assets/icons/footerLogo2.png';
 
 const Contact = () => {
   const [windowSize, setWindowSize] = useState({

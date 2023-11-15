@@ -1,15 +1,21 @@
-import type { NextPage } from 'next';
 import { Fragment } from 'react';
-import Hero from '@modules/Hero';
-import Services from '@modules/Services';
-import Contact from '@modules/Contact';
+
+import { Container } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import type { NextPage } from 'next';
+import Head from 'next/head';
 
 import hero from '@assets/images/hero.webp';
 import heroMobile from '@assets/images/hero.webp';
-import Head from 'next/head';
-import { Container } from '@mui/material';
+import services from '@assets/images/services.webp';
+import support from '@assets/images/support.webp';
+import supportMobile from '@assets/images/support.webp';
+import Hero from '@modules/Hero/Hero';
+import styles from '@modules/Hero/Hero.module.css';
+import Services from '@modules/Services/Services';
+import Support from '@modules/Support/Support';
+import { heroSection, servicesSection, supportSection } from '@utils/constants';
 
 const Home: NextPage = () => {
   // const {
@@ -29,49 +35,34 @@ const Home: NextPage = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="Url Placeholder" />
       </Head>
-      <Hero image={hero.src} mobileImage={heroMobile.src} alt="justicia">
+      <Hero
+        image={hero.src}
+        mobileImage={heroMobile.src}
+        alt="justicia"
+        classes={{ leftContainer: styles.leftContainer }}
+      >
         <Container>
-          <Grid
-            item
-            xs={12}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            flexDirection="column"
-            sx={{
-              marginTop: '20px',
-              marginBottom: '57px',
-              ['@media (max-width:599.95px)']: {
-                marginBottom: '27px',
-              },
-            }}
-          >
-            <Typography key="heroTitle" component="h1" variant="h2" textAlign="left" fontFamily="EB Garamond, serif">
-              Resolvemos tus problemas con los mejores profesionales
+          <Grid item xs={12} className={styles.titleContainer}>
+            <Typography key="heroTitle" component="h1" variant="h2" className={styles.title}>
+              {heroSection.title}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} ml="auto">
-            <Typography
-              key="heroIntro"
-              component="h2"
-              variant="h5"
-              textAlign="left"
-              fontFamily="Open Sauce One, sans-serif"
-            >
-              Representación, asesoría y acompañamiento en todo tipo de procesos judiciales.
+            <Typography key="heroIntro" component="h2" variant="h5" className={styles.subtitle}>
+              {heroSection.text}
             </Typography>
           </Grid>
         </Container>
       </Hero>
-      {/* <Hero
-        image={schedule.src}
-        mobileImage={scheduleMobile.src}
-        description="horario consultorio"
-        href="https://n9.cl/tm0ht"
-      >
-        
-      </Hero> */}
-      {/* <Services sections={areasSections} id="especialidades" /> */}
+      <Support
+        title={supportSection.title}
+        text={supportSection.text}
+        image={support.src}
+        mobileImage={supportMobile.src}
+        alt="balanza"
+        button={supportSection.button}
+      />
+      <Services title={servicesSection.title} services={servicesSection.services} />
     </Fragment>
   );
 };

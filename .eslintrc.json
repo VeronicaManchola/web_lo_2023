@@ -7,6 +7,49 @@
       {
         "patterns": ["@mui/*/*/*"]
       }
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ],
+    "import/order": [
+      1,
+      {
+        "groups": ["builtin", "external", "internal", "sibling", "parent", "index"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "assets",
+            "group": "internal"
+          },
+          {
+            "pattern": "modules",
+            "group": "internal"
+          },
+          {
+            "pattern": "utils",
+            "group": "internal"
+          },
+          {
+            "pattern": "styles/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["internal"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
     ]
   }
 }

@@ -1,15 +1,17 @@
 import React, { Fragment } from 'react';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import AppBar from '@mui/material/AppBar';
-import logo from '@assets/images/logo.webp';
-import Image from 'next/image';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import { useRouter } from 'next/router';
-import { NavigationType } from '@utils/constants';
-import { IconButton, Menu, MenuItem, MenuList } from '@mui/material';
+
 import MenuIcon from '@mui/icons-material/Menu';
+import { IconButton, Menu, MenuItem } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+
+import logo from '@assets/images/logo.webp';
+import { NavigationType } from '@utils/constants';
 
 interface HeaderProps {
   sections: NavigationType[];
@@ -27,6 +29,16 @@ const Navigation = (props: HeaderProps) => {
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleClick = (target: NavigationType) => {
+    if (target.hash && target.url === router.pathname) {
+      const id = target.hash;
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      router.push({ pathname: target.url, hash: target.hash }, undefined, { scroll: false });
+    }
   };
 
   return (
@@ -102,15 +114,7 @@ const Navigation = (props: HeaderProps) => {
             {sections?.map((section, index) => (
               <Box key={section.id} sx={{ ml: `${index === 0 ? 'auto' : '36px'}` }}>
                 <Button
-                  onClick={() => {
-                    if (section.hash && section.url === router.pathname) {
-                      const id = section.hash;
-                      const element = document.getElementById(id);
-                      element?.scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                      router.push({ pathname: section.url, hash: section.hash }, undefined, { scroll: false });
-                    }
-                  }}
+                  onClick={() => handleClick(section)}
                   color="secondary"
                   variant="contained"
                   sx={{

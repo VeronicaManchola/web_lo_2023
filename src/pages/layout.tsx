@@ -1,10 +1,14 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
+
+import Contact from '@modules/Contact';
 import Navigation from '@modules/Navigation';
 import { navSections } from '@utils/constants';
-import Contact from '@modules/Contact';
 
 let theme = createTheme({
+  typography: {
+    fontFamily: ['Open Sauce One', 'sans-serif'].join(','),
+  },
   palette: {
     primary: {
       main: '#E3DFD6',
@@ -15,7 +19,8 @@ let theme = createTheme({
       contrastText: '#E3DFD6',
     },
     info: {
-      main: '#999999',
+      main: '#323232',
+      contrastText: '#E3DFD6',
     },
     background: {
       default: '#ffffff',
