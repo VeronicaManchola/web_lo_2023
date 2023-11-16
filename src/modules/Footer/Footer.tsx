@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 import styles from '@modules/Footer/Footer.module.css';
 
