@@ -1,0 +1,13 @@
+.sectionContainer {
+  padding-top: 77px;
+  padding-bottom: 77px;
+}
+
+.title {
+  text-align: left;
+  font-family: 'EB Garamond', 'serif';
+}
+
+.content {
+  padding-top: 16px;
+}

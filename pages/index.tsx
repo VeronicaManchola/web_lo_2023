@@ -1,21 +1,18 @@
 import { Fragment } from 'react';
 
-import { Container } from '@mui/material';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
+import counsel from '@assets/images/counsel.webp';
 import hero from '@assets/images/hero.webp';
 import heroMobile from '@assets/images/hero.webp';
-import services from '@assets/images/services.webp';
 import support from '@assets/images/support.webp';
 import supportMobile from '@assets/images/support.webp';
+import { Counsel } from '@modules/Counsel/Counsel';
 import Hero from '@modules/Hero/Hero';
-import styles from '@modules/Hero/Hero.module.css';
 import Services from '@modules/Services/Services';
 import Support from '@modules/Support/Support';
-import { heroSection, servicesSection, supportSection } from '@utils/constants';
+import { counselSection, heroSection, servicesSection, supportSection } from '@utils/constants';
 
 const Home: NextPage = () => {
   // const {
@@ -39,21 +36,9 @@ const Home: NextPage = () => {
         image={hero.src}
         mobileImage={heroMobile.src}
         alt="justicia"
-        classes={{ leftContainer: styles.leftContainer }}
-      >
-        <Container>
-          <Grid item xs={12} className={styles.titleContainer}>
-            <Typography key="heroTitle" component="h1" variant="h2" className={styles.title}>
-              {heroSection.title}
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={6} ml="auto">
-            <Typography key="heroIntro" component="h2" variant="h5" className={styles.subtitle}>
-              {heroSection.text}
-            </Typography>
-          </Grid>
-        </Container>
-      </Hero>
+        title={heroSection.title}
+        text={heroSection.text}
+      />
       <Support
         title={supportSection.title}
         text={supportSection.text}
@@ -62,7 +47,8 @@ const Home: NextPage = () => {
         alt="balanza"
         button={supportSection.button}
       />
-      <Services title={servicesSection.title} services={servicesSection.services} />
+      <Services id="servicios" title={servicesSection.title} services={servicesSection.services} />
+      <Counsel title={counselSection.title} text={counselSection.text} image={counsel.src} alt="libros" />
     </Fragment>
   );
 };

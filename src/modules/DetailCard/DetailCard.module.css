@@ -1,0 +1,19 @@
+.title {
+  font-family: 'EB Garamond', 'serif';
+}
+
+.card {
+  height: 100%;
+  padding: 60px;
+  justify-content: center;
+}
+
+.card ul {
+  padding-inline-start: 20px;
+}
+
+@media only screen and (max-width: 899.95px) {
+  .card {
+    padding: 30px 25px;
+  }
+}

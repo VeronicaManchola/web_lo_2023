@@ -10,16 +10,17 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import logo from '@assets/images/logo.webp';
 import { NavigationType } from '@utils/constants';
+import styles from '@modules/Navigation/Navigation.module.css';
 
 interface HeaderProps {
   sections: NavigationType[];
   title: string;
+  logo: string;
 }
 
 const Navigation = (props: HeaderProps) => {
-  const { sections, title } = props;
+  const { sections, title, logo } = props;
   const router = useRouter();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -43,17 +44,7 @@ const Navigation = (props: HeaderProps) => {
 
   return (
     <Fragment>
-      <AppBar
-        position="absolute"
-        sx={{
-          bgcolor: 'background.paper',
-          boxShadow: 'none',
-          padding: '66px 0',
-          ['@media (max-width:599.95px)']: {
-            padding: '0',
-          },
-        }}
-      >
+      <AppBar position="absolute" className={styles.navbar} sx={{ bgcolor: 'background.paper' }}>
         <Toolbar sx={{ maxHeight: 190 }}>
           <Typography
             component="a"
@@ -62,7 +53,7 @@ const Navigation = (props: HeaderProps) => {
               e.preventDefault();
               router.push('/');
             }}
-            sx={{ border: 'none', padding: 0, background: 'none', cursor: 'pointer' }}
+            className={styles.homeLink}
           >
             <Box width={220} sx={{ height: '57px' }}>
               <Image src={logo} layout="responsive" width="214" height="57" alt={title} />
@@ -97,8 +88,8 @@ const Navigation = (props: HeaderProps) => {
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
+              className={styles.mobileMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
                 '& .MuiMenu-paper': { backgroundColor: 'primary.main', color: 'primary.contrastText' },
               }}
             >
@@ -117,11 +108,7 @@ const Navigation = (props: HeaderProps) => {
                   onClick={() => handleClick(section)}
                   color="secondary"
                   variant="contained"
-                  sx={{
-                    fontFamily: 'Open Sauce One, sans-serif',
-                    fontWeight: 'bold',
-                    padding: '16px 75px',
-                  }}
+                  className={styles.button}
                 >
                   {section.title}
                 </Button>

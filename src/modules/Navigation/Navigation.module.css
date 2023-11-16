@@ -1,0 +1,30 @@
+.navbar {
+  box-shadow: none;
+  padding: 66px 0;
+}
+
+.homeLink {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.button {
+  font-weight: bold;
+  padding: 16px 75px;
+}
+
+@media only screen and (max-width: 599.95px) {
+  .navbar {
+    padding: 0;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+}

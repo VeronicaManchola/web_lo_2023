@@ -31,9 +31,15 @@ export interface CardContentType {
   color: string;
 }
 
+export enum Service {
+  TEXT = 'text',
+  IMAGE = 'image',
+}
+
 export interface ServicesListType {
   id: string;
   content: Either<ImageContentType, CardContentType>;
+  type: Service;
 }
 
 export interface ServicesType {
@@ -87,6 +93,7 @@ export const servicesList: ServicesListType[] = [
       bgColor: '#003C64',
       color: '#ffffff',
     },
+    type: Service.TEXT,
   },
   {
     id: 'cuidad-personal',
@@ -103,6 +110,7 @@ export const servicesList: ServicesListType[] = [
       bgColor: '#E3DFD6',
       color: '#323232',
     },
+    type: Service.TEXT,
   },
   {
     id: 'mediacion-familiar',
@@ -110,12 +118,14 @@ export const servicesList: ServicesListType[] = [
       title: 'Mediación Familiar',
       text: (
         <ul>
-          <li>Placeholder</li>
+          <li>El objetivo es solucionar conflictos a través del diálogo y la comunicación efectiva.</li>
+          <li>Contamos con Mediadora certificada y registrada en el Ministerio de Justicia.</li>
         </ul>
       ),
       bgColor: '#ffffff',
       color: '#323232',
     },
+    type: Service.TEXT,
   },
   {
     id: 'imagen-servicios',
@@ -123,10 +133,25 @@ export const servicesList: ServicesListType[] = [
       alt: 'pareja tomada de la mano',
       image: 'services.webp',
     },
+    type: Service.IMAGE,
   },
 ];
 
 export const servicesSection: ServicesType = {
   title: 'Nuestro enfoque:',
   services: servicesList,
+};
+
+export const counselSection: SectionType = {
+  title: 'Asesoramos y resolvemos en diferentes áreas:',
+  text: (
+    <ul>
+      <li>Autorización de salida del país.</li>
+      <li>Alimentos mayores.</li>
+      <li>Divorcio.</li>
+      <li>Relación directa y regular (visitas).</li>
+      <li>Declaración de bien familiar.</li>
+      <li>Derecho Civil: Juicios de interacción (Cambio de nombre, término de contrato de arriendo, entre otros).</li>
+    </ul>
+  ),
 };

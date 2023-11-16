@@ -1,68 +1,73 @@
 import * as React from 'react';
 
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
-import DetailCard from '@modules/DetailCard';
+import DetailCard from '@modules/DetailCard/DetailCard';
 import styles from '@modules/Services/Services.module.css';
-import { ServicesType } from '@utils/constants';
+import { Service, ServicesListType, ServicesType } from '@utils/constants';
 
-interface SupportProps extends ServicesType {}
+interface SupportProps extends ServicesType {
+  id: string;
+}
+
+const renderCard = (service: ServicesListType) => {
+  const {
+    content: { title = '', text = <></>, bgColor = '', color = '', image = '', alt = '' },
+  } = service;
+
+  switch (service.type) {
+    case Service.TEXT:
+      return (
+        <Grid key={service.id} item xs={12} sm={6} p={2}>
+          <DetailCard title={title} text={text} bgColor={bgColor} color={color} />
+        </Grid>
+      );
+    case Service.IMAGE: {
+      const {
+        default: { src: cardImage },
+      } = require(`@assets/images/${image}`);
+
+      return (
+        <Grid key={service.id} item xs={12} sm={6} p={2}>
+          <picture style={{ width: '100%' }}>
+            <source srcSet={cardImage} media="(max-width: 599px)" height="250px" />
+            <source srcSet={cardImage} media="(max-width: 899px)" style={{ minHeight: '250px' }} />
+            <source srcSet={cardImage} media="(min-width: 900px)" style={{ minHeight: '340px' }} />
+            <img
+              src={cardImage}
+              alt={alt}
+              height="100%"
+              style={{ objectFit: 'cover', display: 'block', width: '100%', objectPosition: '30% 30%' }}
+            />
+          </picture>
+        </Grid>
+      );
+    }
+    default:
+      break;
+  }
+};
 
 const Services = (props: SupportProps) => {
-  const { title, services } = props;
+  const { id, title, services } = props;
 
   return (
-    <Container
-      maxWidth="xl"
-      className={styles.sectionContainer}
-      sx={{ backgroundColor: 'info.main', color: 'info.contrastText' }}
-    >
-      <Grid container justifyContent="center">
-        <Grid item xs={12} md={2} className={styles.leftContainer}>
-          <Typography component="h3" variant="h3" className={styles.title}>
-            {title}
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={7} className={styles.rightContainer}>
-          <Grid container>
-            {services.map((service) => {
-              const card = service.content;
-              if (card.title && card.text) {
-                return (
-                  <Grid key={service.id} item xs={12} md={6} p={2}>
-                    <DetailCard title={card.title} text={card.text} bgColor={card.bgColor} color={card.color} />
-                  </Grid>
-                );
-              }
-
-              let image;
-
-              if (card.image) {
-                const {
-                  default: { src },
-                } = require(`@assets/images/${card.image}`);
-                image = src;
-              }
-
-              return (
-                <Grid key={service.id} item xs={12} md={6} p={2}>
-                  <picture style={{ width: '100%' }}>
-                    <img
-                      src={image}
-                      alt={card.alt}
-                      height="340px"
-                      style={{ objectFit: 'cover', display: 'block', width: '100%' }}
-                    />
-                  </picture>
-                </Grid>
-              );
-            })}
+    <Box id={id} className={styles.sectionContainer} sx={{ backgroundColor: 'info.main', color: 'info.contrastText' }}>
+      <Container maxWidth="xl">
+        <Grid container justifyContent="center">
+          <Grid item xs={12} md={8} lg={2} className={styles.leftContainer}>
+            <Typography component="h3" variant="h3" className={styles.title}>
+              {title}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={10} lg={8} xl={7} className={styles.rightContainer}>
+            <Grid container>{services.map((service) => renderCard(service))}</Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 

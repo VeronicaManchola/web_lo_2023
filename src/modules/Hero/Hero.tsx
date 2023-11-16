@@ -1,25 +1,36 @@
 import React, { Fragment } from 'react';
 
-import { Box } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-interface HeroProps {
+import styles from '@modules/Hero/Hero.module.css';
+import { SectionType } from '@utils/constants';
+interface HeroProps extends SectionType {
   image: string;
   mobileImage: string;
   alt?: string;
-  children?: React.ReactNode;
-  classes?: any;
 }
 
 const Hero = (props: HeroProps) => {
-  const { image, mobileImage, alt, children, classes } = props;
+  const { image, mobileImage, alt, title, text } = props;
 
   return (
     <Fragment>
       <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
-        <Grid container className={classes.leftContainer}>
+        <Grid container className={styles.leftContainer}>
           <Grid item xs={12} md={8} lg={7} display="flex" alignItems="center" order={{ xs: 2, md: 1 }}>
-            {children}
+            <Container>
+              <Grid item xs={12} className={styles.titleContainer}>
+                <Typography key="heroTitle" component="h1" variant="h2" className={styles.title}>
+                  {title}
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sm={6} ml="auto">
+                <Typography key="heroIntro" component="h2" variant="h5" className={styles.subtitle}>
+                  {text}
+                </Typography>
+              </Grid>
+            </Container>
           </Grid>
           <Grid item xs={12} md={4} lg={5} display="flex" order={{ xs: 1, md: 2 }}>
             <picture style={{ width: '100%' }}>
