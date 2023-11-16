@@ -105,7 +105,13 @@ const Navigation = (props: HeaderProps) => {
               }}
             >
               {sections.map((section) => (
-                <MenuItem key={section.id} onClick={handleCloseNavMenu}>
+                <MenuItem
+                  key={section.id}
+                  onClick={() => {
+                    handleClick(section);
+                    handleCloseNavMenu();
+                  }}
+                >
                   <Typography textAlign="center">{section.title}</Typography>
                 </MenuItem>
               ))}
