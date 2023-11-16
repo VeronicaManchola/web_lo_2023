@@ -5,8 +5,9 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { useRouter } from 'next/router';
 
-import styles from '@modules/Support/Support.module.css';
 import { SectionType } from '@utils/constants';
+
+import styles from './Support.module.css';
 
 interface SupportProps extends SectionType {
   image: string;

@@ -5,8 +5,9 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
 import DetailCard from '@modules/DetailCard/DetailCard';
-import styles from '@modules/Services/Services.module.css';
 import { Service, ServicesListType, ServicesType } from '@utils/constants';
+
+import styles from './Services.module.css';
 
 interface SupportProps extends ServicesType {
   id: string;

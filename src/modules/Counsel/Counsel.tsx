@@ -1,7 +1,8 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
 
-import styles from '@modules/Counsel/Counsel.module.css';
 import { SectionType } from '@utils/constants';
+
+import styles from './Counsel.module.css';
 
 interface CounselProps extends SectionType {
   image: string;

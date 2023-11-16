@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
-import styles from '@modules/DetailCard/DetailCard.module.css';
+import styles from './DetailCard.module.css';
 
 interface DetailCardProps {
   title: string;

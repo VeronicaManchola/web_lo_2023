@@ -1,11 +1,10 @@
 import CssBaseline from '@mui/material/CssBaseline';
-import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 
 import logo from '@assets/images/logo.webp';
 import Footer from '@modules/Footer/Footer';
 import Navigation from '@modules/Navigation/Navigation';
 import { navSections } from '@utils/constants';
-
 
 let theme = createTheme({
   typography: {
@@ -38,12 +37,14 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Navigation title="Placeholder" sections={navSections} logo={logo.src} />
-      {children}
-      <Footer id="contacto" logo={logo.src} alt="Placeholder" />
-    </ThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Navigation title="Placeholder" sections={navSections} logo={logo.src} />
+        {children}
+        <Footer id="contacto" logo={logo.src} alt="Placeholder" />
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 

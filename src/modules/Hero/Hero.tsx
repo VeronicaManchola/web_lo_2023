@@ -3,8 +3,9 @@ import React, { Fragment } from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
-import styles from '@modules/Hero/Hero.module.css';
 import { SectionType } from '@utils/constants';
+
+import styles from './Hero.module.css';
 interface HeroProps extends SectionType {
   image: string;
   mobileImage: string;

@@ -7,11 +7,12 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Image from "next/image";
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import styles from '@modules/Navigation/Navigation.module.css';
 import { NavigationType } from '@utils/constants';
+
+import styles from './Navigation.module.css';
 
 interface HeaderProps {
   sections: NavigationType[];
@@ -63,9 +64,10 @@ const Navigation = (props: HeaderProps) => {
                 alt={title}
                 sizes="100vw"
                 style={{
-                  width: "100%",
-                  height: "auto"
-                }} />
+                  width: '100%',
+                  height: 'auto',
+                }}
+              />
             </Box>
           </Typography>
 
