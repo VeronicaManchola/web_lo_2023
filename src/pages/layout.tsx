@@ -1,11 +1,11 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
 
+import logo from '@assets/images/logo.webp';
 import Footer from '@modules/Footer/Footer';
 import Navigation from '@modules/Navigation/Navigation';
 import { navSections } from '@utils/constants';
 
-import logo from '@assets/images/logo.webp';
 
 let theme = createTheme({
   typography: {

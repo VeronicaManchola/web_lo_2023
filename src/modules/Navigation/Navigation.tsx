@@ -7,11 +7,11 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useRouter } from 'next/router';
 
-import { NavigationType } from '@utils/constants';
 import styles from '@modules/Navigation/Navigation.module.css';
+import { NavigationType } from '@utils/constants';
 
 interface HeaderProps {
   sections: NavigationType[];
@@ -56,7 +56,16 @@ const Navigation = (props: HeaderProps) => {
             className={styles.homeLink}
           >
             <Box width={220} sx={{ height: '57px' }}>
-              <Image src={logo} layout="responsive" width="214" height="57" alt={title} />
+              <Image
+                src={logo}
+                width="214"
+                height="57"
+                alt={title}
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "auto"
+                }} />
             </Box>
           </Typography>
 

@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 import styles from '@modules/Footer/Footer.module.css';
 
@@ -33,7 +33,16 @@ const Footer = (props: FooterProps) => {
                 }}
                 className={styles.homeLink}
               >
-                <Image src={logo} layout="responsive" width="214" height="57" alt={alt} />
+                <Image
+                  src={logo}
+                  width="214"
+                  height="57"
+                  alt={alt}
+                  sizes="100vw"
+                  style={{
+                    width: "100%",
+                    height: "auto"
+                  }} />
               </Typography>
             </Box>
           </Grid>
