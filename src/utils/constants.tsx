@@ -68,6 +68,7 @@ export const supportSection: SectionType = {
       Con tu confianza y nuestra extensa experiencia podemos lograr los mejores resultados.
       <br />
       Nos especializamos en acompañar en cada paso del proceso.
+      <span style={{ marginTop: '50px' }}>Por esto es que la primera consulta es gratuita.</span>
     </>
   ),
   button: {
@@ -122,7 +123,7 @@ export const servicesList: ServicesListType[] = [
           <li>Contamos con Mediadora certificada y registrada en el Ministerio de Justicia.</li>
         </ul>
       ),
-      bgColor: '#ffffff',
+      bgColor: '#D9D9D9',
       color: '#323232',
     },
     type: Service.TEXT,

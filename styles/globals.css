@@ -5,7 +5,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 a {
@@ -20,5 +20,12 @@ a {
 @media only screen and (max-width: 370px) {
   a {
     word-break: break-all;
+  }
+}
+
+@media only screen and (max-width: 1199.95px) {
+  html,
+  body {
+    scroll-snap-type: unset;
   }
 }

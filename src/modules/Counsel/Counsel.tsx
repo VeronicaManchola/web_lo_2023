@@ -13,8 +13,11 @@ export const Counsel = (props: CounselProps) => {
   const { title, text, image, alt } = props;
 
   return (
-    <Box className={styles.sectionContainer} sx={{ backgroundColor: 'primary.main', color: 'primary.contrastText' }}>
-      <Container maxWidth="lg">
+    <Box
+      className={styles.sectionContainer}
+      sx={{ backgroundColor: 'primary.main', color: 'primary.contrastText', height: '100vh' }}
+    >
+      <Container maxWidth="lg" sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '100%' }}>
         <Grid container>
           <Grid item xs={12} mb={4}>
             <picture style={{ width: '100%' }}>

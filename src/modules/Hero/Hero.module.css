@@ -1,3 +1,8 @@
+.sectionContainer {
+  scroll-snap-align: start;
+  height: 100vh;
+}
+
 .titleContainer {
   margin-top: 20px;
   margin-bottom: 57px;
@@ -16,14 +21,37 @@
   text-align: left;
 }
 
+.leftContainer {
+  height: 100%;
+}
+
+.heroImg {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  object-position: 15%;
+  height: 100vh;
+}
+
 @media only screen and (max-width: 599.95px) {
   .titleContainer {
     margin-bottom: 27px;
+  }
+  .heroImg {
+    height: 50vh;
   }
 }
 
 @media only screen and (max-width: 899.95px) {
   .leftContainer {
     padding-bottom: 30px;
+    align-items: flex-start;
+  }
+  .heroImg {
+    height: 60vh;
+  }
+
+  .sectionContainer {
+    height: auto;
   }
 }

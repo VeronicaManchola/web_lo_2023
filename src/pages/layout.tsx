@@ -1,7 +1,7 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, responsiveFontSizes, StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 
-import logo from '@assets/images/logo.webp';
+import Logo from '@assets/icons/logo';
 import Footer from '@modules/Footer/Footer';
 import Navigation from '@modules/Navigation/Navigation';
 import { navSections } from '@utils/constants';
@@ -16,15 +16,15 @@ let theme = createTheme({
       contrastText: '#323232',
     },
     secondary: {
-      main: '#003C64',
-      contrastText: '#E3DFD6',
+      main: '#B2935B',
+      contrastText: '#FFFFFF',
     },
     info: {
       main: '#323232',
       contrastText: '#E3DFD6',
     },
     background: {
-      default: '#ffffff',
+      default: '#D9D9D9',
       paper: 'transparent',
     },
   },
@@ -40,9 +40,9 @@ const Layout = ({ children }: LayoutProps) => {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Navigation title="Placeholder" sections={navSections} logo={logo.src} />
+        <Navigation title="Placeholder" sections={navSections} Logo={Logo} />
         {children}
-        <Footer id="contacto" logo={logo.src} alt="Placeholder" />
+        <Footer id="contacto" Logo={Logo} alt="Placeholder" />
       </ThemeProvider>
     </StyledEngineProvider>
   );

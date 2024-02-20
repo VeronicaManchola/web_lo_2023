@@ -1,29 +1,36 @@
 import React from 'react';
 
+import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
+
+import { LogoProps } from '@assets/icons/logo';
 
 import styles from './Footer.module.css';
 
 interface FooterProps {
-  logo: string;
+  Logo: ({ color, width, height }: LogoProps) => JSX.Element;
   alt: string;
   id: string;
 }
 
 const Footer = (props: FooterProps) => {
-  const { logo, alt, id } = props;
+  const { Logo, alt, id } = props;
+  const theme = useTheme();
 
   return (
-    <Box id={id} className={styles.sectionContainer} sx={{ backgroundColor: 'info.main', color: 'info.contrastText' }}>
-      <Container maxWidth="lg">
+    <Box
+      id={id}
+      className={styles.sectionContainer}
+      sx={{ backgroundColor: 'info.main', color: 'info.contrastText', height: '100vh' }}
+    >
+      <Container maxWidth="lg" sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '100%' }}>
         <Grid container justifyContent="center">
-          <Grid item xs={12} pb={8}>
-            <Box width={220} sx={{ height: '57px' }}>
+          <Grid item xs={12} pb={10}>
+            <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
               <Typography
                 component="a"
                 href="/"
@@ -33,21 +40,11 @@ const Footer = (props: FooterProps) => {
                 }}
                 className={styles.homeLink}
               >
-                <Image
-                  src={logo}
-                  width="214"
-                  height="57"
-                  alt={alt}
-                  sizes="100vw"
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                  }}
-                />
+                {Logo({ color: theme.palette.info.contrastText, width: '150px', height: '150px' })}
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} md={10}>
+          <Grid item xs={12} sx={{ textAlign: { xs: 'center', md: 'left' } }}>
             <Grid container>
               <Grid item xs={12} sm={6}>
                 <Typography component="h3" variant="h3" className={styles.title}>
@@ -59,8 +56,8 @@ const Footer = (props: FooterProps) => {
                   </Link>
                 </Typography>
                 <Typography component="div" variant="body1">
-                  <Link href="mailto:hello@reallygreatsite.com" underline="hover">
-                    hello@reallygreatsite.com
+                  <Link href="mailto:contacto@justiciafamiliararica.cl" underline="hover">
+                    contacto@justiciafamiliararica.cl
                   </Link>
                 </Typography>
               </Grid>

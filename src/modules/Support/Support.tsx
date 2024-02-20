@@ -31,7 +31,11 @@ const Support = (props: SupportProps) => {
 
   return (
     <Container maxWidth="xl" className={styles.sectionContainer}>
-      <Grid container justifyContent="center">
+      <Grid
+        container
+        justifyContent="center"
+        sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '100%' }}
+      >
         <Grid item xs={12} lg={10}>
           <Grid container>
             <Grid item xs={12} md={7} className={styles.leftContainer}>

@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import MenuIcon from '@mui/icons-material/Menu';
-import { IconButton, Menu, MenuItem } from '@mui/material';
+import { IconButton, Menu, MenuItem, useMediaQuery, useTheme } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
+import { LogoProps } from '@assets/icons/logo';
 import { NavigationType } from '@utils/constants';
 
 import styles from './Navigation.module.css';
@@ -17,13 +17,35 @@ import styles from './Navigation.module.css';
 interface HeaderProps {
   sections: NavigationType[];
   title: string;
-  logo: string;
+  Logo: ({ color, width, height }: LogoProps) => JSX.Element;
 }
 
 const Navigation = (props: HeaderProps) => {
-  const { sections, title, logo } = props;
+  const { sections, title, Logo } = props;
   const router = useRouter();
+  const theme = useTheme();
+  const isDesktop = useMediaQuery('(max-width:900px)');
+  const [logoStyle, setLogoStyle] = useState<Record<string, any>>({
+    position: 'unset',
+    bottom: 'unset',
+    left: 'unset',
+  });
 
+  useEffect(() => {
+    if (isDesktop) {
+      setLogoStyle({
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+      });
+    } else {
+      setLogoStyle({
+        position: 'unset',
+        bottom: 'unset',
+        left: 'unset',
+      });
+    }
+  }, [isDesktop]);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -46,7 +68,7 @@ const Navigation = (props: HeaderProps) => {
   return (
     <Fragment>
       <AppBar position="absolute" className={styles.navbar} sx={{ bgcolor: 'background.paper' }}>
-        <Toolbar sx={{ maxHeight: 190 }}>
+        <Toolbar sx={{ maxHeight: 190, paddingTop: { xs: '20px', md: 0 } }}>
           <Typography
             component="a"
             href="/"
@@ -56,18 +78,21 @@ const Navigation = (props: HeaderProps) => {
             }}
             className={styles.homeLink}
           >
-            <Box width={220} sx={{ height: '57px' }}>
-              <Image
-                src={logo}
-                width="214"
-                height="57"
-                alt={title}
-                sizes="100vw"
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                }}
-              />
+            <Box
+              width={220}
+              sx={{
+                textAlign: 'center',
+                height: { xs: '70px', md: 'auto' },
+                overflow: { xs: 'hidden', md: 'unset' },
+                position: { xs: 'relative', md: 'unset' },
+              }}
+            >
+              {Logo({
+                color: theme.palette.info.main,
+                width: isDesktop ? '200px' : '150px',
+                height: isDesktop ? '200px' : '150px',
+                style: logoStyle,
+              })}
             </Box>
           </Typography>
 
@@ -78,7 +103,7 @@ const Navigation = (props: HeaderProps) => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="primary"
+              color="info"
               sx={{
                 marginLeft: 'auto',
               }}

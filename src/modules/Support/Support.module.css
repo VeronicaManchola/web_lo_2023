@@ -1,6 +1,6 @@
 .sectionContainer {
-  padding-top: 77px;
-  padding-bottom: 77px;
+  scroll-snap-align: start;
+  height: 100vh;
 }
 
 .leftContainer {
@@ -28,13 +28,24 @@
 .button {
   font-weight: bold;
   padding: 16px 75px;
-  margin-top: 57px;
+  margin-top: 27px;
+}
+
+@media only screen and (max-width: 1199.95px) {
+  .sectionContainer {
+    height: auto;
+    padding-top: 47px;
+    padding-bottom: 47px;
+  }
 }
 
 @media only screen and (max-width: 599.95px) {
-  .sectionContainer {
-    padding-top: 47px;
-    padding-bottom: 47px;
+  .title {
+    margin-bottom: 28px;
+  }
+
+  .button {
+    margin-top: 30px;
   }
 }
 

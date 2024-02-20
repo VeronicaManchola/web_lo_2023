@@ -1,6 +1,6 @@
 .sectionContainer {
-  padding-top: 77px;
-  padding-bottom: 77px;
+  scroll-snap-align: start;
+  height: 100vh;
 }
 
 .title {
@@ -8,6 +8,25 @@
   font-family: 'EB Garamond', 'serif';
 }
 
+.homeLink {
+  height: auto;
+  display: inline-block;
+}
+
 .content {
   padding-top: 16px;
+}
+
+@media only screen and (max-width: 899.95px) {
+  .title {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1199.95px) {
+  .sectionContainer {
+    height: auto;
+    padding-top: 47px;
+    padding-bottom: 47px;
+  }
 }

@@ -17,7 +17,7 @@ const Hero = (props: HeroProps) => {
 
   return (
     <Fragment>
-      <Box sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
+      <Box className={styles.sectionContainer} sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
         <Grid container className={styles.leftContainer}>
           <Grid item xs={12} md={8} lg={7} display="flex" alignItems="center" order={{ xs: 2, md: 1 }}>
             <Container>
@@ -33,15 +33,11 @@ const Hero = (props: HeroProps) => {
               </Grid>
             </Container>
           </Grid>
-          <Grid item xs={12} md={4} lg={5} display="flex" order={{ xs: 1, md: 2 }}>
-            <picture style={{ width: '100%' }}>
+          <Grid item xs={12} md={4} lg={5} display="flex" order={{ xs: 1, md: 2 }} sx={{ height: 'fit-content' }}>
+            <picture style={{ width: '100%', height: 'fit-content' }}>
               <source srcSet={mobileImage} media="(max-width: 899px)" height="400px" />
               <source srcSet={image} media="(min-width: 900px)" height="780px" />
-              <img
-                src={image}
-                alt={alt}
-                style={{ objectFit: 'cover', display: 'block', width: '100%', objectPosition: '15%' }}
-              />
+              <img className={styles.heroImg} src={image} alt={alt} />
             </picture>
           </Grid>
         </Grid>

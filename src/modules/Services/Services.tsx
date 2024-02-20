@@ -55,8 +55,12 @@ const Services = (props: SupportProps) => {
   const { id, title, services } = props;
 
   return (
-    <Box id={id} className={styles.sectionContainer} sx={{ backgroundColor: 'info.main', color: 'info.contrastText' }}>
-      <Container maxWidth="xl">
+    <Box
+      id={id}
+      className={styles.sectionContainer}
+      sx={{ backgroundColor: 'info.main', color: 'info.contrastText', height: '100vh' }}
+    >
+      <Container maxWidth="xl" sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '100%' }}>
         <Grid container justifyContent="center">
           <Grid item xs={12} md={8} lg={2} className={styles.leftContainer}>
             <Typography component="h3" variant="h3" className={styles.title}>

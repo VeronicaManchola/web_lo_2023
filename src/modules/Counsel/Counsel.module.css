@@ -1,6 +1,6 @@
 .sectionContainer {
-  padding-top: 36px;
-  padding-bottom: 36px;
+  scroll-snap-align: start;
+  height: 100vh;
 }
 
 .title {
@@ -10,6 +10,14 @@
 
 .content ul {
   padding-inline-start: 20px;
+}
+
+@media only screen and (max-width: 1199.95px) {
+  .sectionContainer {
+    height: auto;
+    padding-top: 47px;
+    padding-bottom: 47px;
+  }
 }
 
 @media only screen and (min-width: 900px) {

@@ -1,6 +1,6 @@
 .sectionContainer {
-  padding-top: 36px;
-  padding-bottom: 36px;
+  scroll-snap-align: start;
+  height: 100vh;
 }
 
 .leftContainer,
@@ -18,5 +18,11 @@
 @media only screen and (max-width: 1199.95px) {
   .title {
     margin-bottom: 30px;
+  }
+
+  .sectionContainer {
+    height: auto;
+    padding-top: 47px;
+    padding-bottom: 47px;
   }
 }
