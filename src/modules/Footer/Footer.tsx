@@ -50,11 +50,11 @@ const Footer = (props: FooterProps) => {
                 <Typography component="h3" variant="h3" className={styles.title}>
                   Contáctanos:
                 </Typography>
-                {/* <Typography component="div" variant="body1" className={styles.content}>
-                  <Link href="tel:(123) 456-7890" underline="hover">
-                    (123) 456-7890
+                <Typography component="div" variant="body1" className={styles.content}>
+                  <Link href="tel:+56 9 54451305" underline="hover">
+                    +56 9 54451305
                   </Link>
-                </Typography> */}
+                </Typography>
                 <Typography component="div" variant="body1">
                   <Link href="mailto:contacto@justiciafamiliararica.cl" underline="hover">
                     contacto@justiciafamiliararica.cl

@@ -15,22 +15,28 @@ import Support from '@modules/Support/Support';
 import { counselSection, heroSection, servicesSection, supportSection } from '@utils/constants';
 
 const Home: NextPage = () => {
-  // const {
-  //   default: { src: ogImg },
-  // } = require(`@assets/images/og_img.webp`);
+  const {
+    default: { src: ogImg },
+  } = require(`@assets/images/Logo.png`);
 
   return (
     <Fragment>
       <Head>
-        <title>Placeholder - Inicio</title>
-        <meta name="description" content="Placeholder" />
-        <meta name="keywords" content="abogada, arica" />
-        <meta property="og:title" content="Placeholder" />
-        <meta property="og:description" content="Placeholder" />
-        {/* <meta property="og:image" content={ogImg} /> */}
-        <meta property="og:image:alt" content="Logo Placeholder" />
+        <title>Justicia Familiar Arica - Inicio</title>
+        <meta
+          name="description"
+          content="Justicia Familiar Arica - Asesoría legal - Mediación familiar. Especialista en derecho de familia y mediadora privada registrada."
+        />
+        <meta name="keywords" content="abogada, arica, legal, familia, juicio, mediacion" />
+        <meta property="og:title" content="Justicia Familiar Arica" />
+        <meta
+          property="og:description"
+          content="Justicia Familiar Arica - Asesoría legal - Mediación familiar. Especialista en derecho de familia y mediadora privada registrada."
+        />
+        <meta property="og:image" content={ogImg} />
+        <meta property="og:image:alt" content="Logo Justicia Familiar Arica" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="Url Placeholder" />
+        <meta property="og:url" content="https://justiciafamiliararica.cl/" />
       </Head>
       <Hero
         image={hero.src}
