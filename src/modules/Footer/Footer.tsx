@@ -69,7 +69,7 @@ const Footer = (props: FooterProps) => {
                   Lunes a Viernes
                 </Typography>
                 <Typography component="div" variant="body1">
-                  9:00 am a 18:00 pm
+                  8:30 am a 19:00 pm
                 </Typography>
                 {/* <Typography component="div" variant="body1" className={styles.content}>
                   Sábado
