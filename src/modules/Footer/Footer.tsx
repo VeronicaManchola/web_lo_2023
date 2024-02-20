@@ -50,11 +50,11 @@ const Footer = (props: FooterProps) => {
                 <Typography component="h3" variant="h3" className={styles.title}>
                   Contáctanos:
                 </Typography>
-                <Typography component="div" variant="body1" className={styles.content}>
+                {/* <Typography component="div" variant="body1" className={styles.content}>
                   <Link href="tel:(123) 456-7890" underline="hover">
                     (123) 456-7890
                   </Link>
-                </Typography>
+                </Typography> */}
                 <Typography component="div" variant="body1">
                   <Link href="mailto:contacto@justiciafamiliararica.cl" underline="hover">
                     contacto@justiciafamiliararica.cl
@@ -71,12 +71,12 @@ const Footer = (props: FooterProps) => {
                 <Typography component="div" variant="body1">
                   9:00 am a 18:00 pm
                 </Typography>
-                <Typography component="div" variant="body1" className={styles.content}>
+                {/* <Typography component="div" variant="body1" className={styles.content}>
                   Sábado
                 </Typography>
                 <Typography component="div" variant="body1">
                   9:00 am a 13:00 pm
-                </Typography>
+                </Typography> */}
               </Grid>
             </Grid>
           </Grid>
