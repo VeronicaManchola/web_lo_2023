@@ -42,7 +42,12 @@ const Support = (props: SupportProps) => {
               <Typography component="h3" variant="h3" className={styles.title}>
                 {title}
               </Typography>
-              <Typography component="p" variant="body1" textAlign="center">
+              <Typography
+                component="p"
+                variant="body1"
+                textAlign="center"
+                sx={{ display: 'flex', flexDirection: 'column' }}
+              >
                 {text}
               </Typography>
               {button && (
