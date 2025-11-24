@@ -53,8 +53,12 @@ export const navSections: NavigationType[] = [
 ];
 
 export const heroSection: SectionType = {
-  title: 'Resolvemos tus problemas con los mejores profesionales',
-  text: 'Representación, asesoría y acompañamiento en todo tipo de procesos judiciales.',
+  title: '¿Necesita demandar o está siendo demandado?',
+  text: (
+    <> Representación y asesoría especializada en todo el proceso judicial.
+    <br />
+    <br /> Somos profesionales con amplia experiencia.</>
+  ),
 };
 
 export const supportSection: SectionType = {
@@ -68,7 +72,7 @@ export const supportSection: SectionType = {
       Con tu confianza y nuestra extensa experiencia podemos lograr los mejores resultados.
       <br />
       Nos especializamos en acompañar en cada paso del proceso.
-      <span style={{ marginTop: '50px' }}>Por esto es que la primera consulta es gratuita.</span>
+      {/* <span style={{ marginTop: '50px' }}>Por esto es que la primera consulta es gratuita.</span> */}
     </>
   ),
   button: {
@@ -85,9 +89,9 @@ export const servicesList: ServicesListType[] = [
       title: 'Pensión de Alimentos',
       text: (
         <ul>
-          <li>Solicitud.</li>
-          <li>Reajuste (aumento y rebaja).</li>
-          <li>Cese.</li>
+          <li>Solicitud de alimentos.</li>
+          <li>Reajuste, aumento y rebaja de alimentos.</li>
+          <li>Cese de los alimentos.</li>
           <li>Cumplimiento de deuda de alimentos.</li>
         </ul>
       ),
@@ -99,13 +103,14 @@ export const servicesList: ServicesListType[] = [
   {
     id: 'cuidad-personal',
     content: {
-      title: 'Cuidado Personal',
+      title: 'Litigacion en Familia',
       text: (
         <ul>
-          <li>Acuerdos y cuidado compartido.</li>
-          <li>Cuidado por terceros.</li>
-          <li>Entrega inmediata.</li>
-          <li>Derecho de niños, niñas y adolescentes a ser oídos.</li>
+          {/* <li>Pensión de alimentos aumento, rebaja y cese de los alimentos.</li> */}
+          <li>Cuidado Personal y modificaciones.</li>
+          <li>Divorcio.</li>
+          <li>Salida del país.</li>
+          <li>Mediación Familiar, mediadora certificada y registrada en el Ministerio de Justicia</li>
         </ul>
       ),
       bgColor: '#E3DFD6',
@@ -116,11 +121,15 @@ export const servicesList: ServicesListType[] = [
   {
     id: 'mediacion-familiar',
     content: {
-      title: 'Mediación Familiar',
+      title: 'Materia Civil',
       text: (
         <ul>
-          <li>El objetivo es solucionar conflictos a través del diálogo y la comunicación efectiva.</li>
-          <li>Contamos con Mediadora certificada y registrada en el Ministerio de Justicia.</li>
+          <li>Contrato de Arriendo.</li>
+          <li>Cambio de nombre.</li>
+          <li>Interdiccion.</li>
+          <li>Precario.</li>
+          <li>Indemnización de perjuicios.</li>
+          <li>Policía Local.</li>
         </ul>
       ),
       bgColor: '#D9D9D9',
@@ -139,20 +148,23 @@ export const servicesList: ServicesListType[] = [
 ];
 
 export const servicesSection: ServicesType = {
-  title: 'Nuestro enfoque:',
+  title: 'Áreas de práctica:',
   services: servicesList,
 };
 
 export const counselSection: SectionType = {
-  title: 'Asesoramos y resolvemos en diferentes áreas:',
+  // title: 'Asesoramos y resolvemos en diferentes áreas:',
+  title: 'Asesoramos y resolvemos en diferentes áreas.',
   text: (
-    <ul>
-      <li>Autorización de salida del país.</li>
-      <li>Alimentos mayores.</li>
-      <li>Divorcio.</li>
-      <li>Relación directa y regular (visitas).</li>
-      <li>Declaración de bien familiar.</li>
-      <li>Derecho Civil: Juicios de interacción (Cambio de nombre, término de contrato de arriendo, entre otros).</li>
-    </ul>
+    <> Nuestro objetivo es realizar el análisis completo y personalizado para resolver el conflicto en material Civil.
+     <ul>
+       <li>Autorización de salida del país.</li>
+       <li>Alimentos.</li>
+       <li>Divorcio.</li>
+       <li>Relación directa y regular (visitas).</li>
+       <li>Declaración de bien familiar.</li>
+       <li>Y otros temas como: Cambio de nombre, término de contrato de arriendo, etc.</li>
+     </ul>
+     </>
   ),
 };
