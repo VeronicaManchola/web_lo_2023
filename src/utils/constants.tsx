@@ -124,9 +124,9 @@ export const servicesList: ServicesListType[] = [
       title: 'Materia Civil',
       text: (
         <ul>
-          <li>Contrato de Arriendo.</li>
+          <li>Contrato de arriendo.</li>
           <li>Cambio de nombre.</li>
-          <li>Interdiccion.</li>
+          <li>Interdicción.</li>
           <li>Precario.</li>
           <li>Indemnización de perjuicios.</li>
           <li>Policía Local.</li>
